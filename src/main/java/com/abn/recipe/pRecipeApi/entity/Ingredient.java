@@ -20,7 +20,9 @@ public class Ingredient {
         this.name = name;
         this.description = description;
     }
+    public Ingredient(){
 
+    }
     public long getId() {
         return id;
     }

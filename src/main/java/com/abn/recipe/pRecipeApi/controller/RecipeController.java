@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/v2")
+@RequestMapping("/v1")
 public class RecipeController {
 
     @Autowired
@@ -25,25 +25,28 @@ public class RecipeController {
 
     @PostMapping("/recipes")
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe){
-        Recipe Recipe = recipeRepository.save(recipe);
-        return new ResponseEntity<Recipe>(Recipe, HttpStatus.CREATED);
+        Recipe recipeEntity = recipeRepository.save(recipe);
+        return new ResponseEntity<Recipe>(recipeEntity, HttpStatus.CREATED);
     }
 
     @PutMapping("/recipes")
-    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe Recipe){
+    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe){
 
-        Optional<Recipe> RecipeOpt = recipeRepository.findById(Recipe.getId());
-        if(RecipeOpt.isPresent()){
-            if (null != Recipe.getDishType()){
-                RecipeOpt.get().setDishType(Recipe.getDishType());
+        Optional<Recipe> recipeOpt = recipeRepository.findById(recipe.getId());
+        if(recipeOpt.isPresent()){
+            if (null != recipe.getDishType()){
+                recipeOpt.get().setDishType(recipe.getDishType());
             }
-            if (null != Recipe.getCookingSteps()){
-                RecipeOpt.get().setCookingSteps(Recipe.getCookingSteps());
+            if (null != recipe.getCookingSteps()){
+                recipeOpt.get().setCookingSteps(recipe.getCookingSteps());
             }
-            if(!Recipe.getIngredientList().isEmpty()){
-                RecipeOpt.get().setIngredientList(Recipe.getIngredientList());
+            if(!recipe.getIngredientList().isEmpty()){
+                recipeOpt.get().setIngredientList(recipe.getIngredientList());
             }
-            return new ResponseEntity<>(recipeRepository.save(RecipeOpt.get()), HttpStatus.OK);
+            if (null != recipe.getNoOfPeople()){
+                recipeOpt.get().setNoOfPeople(recipe.getNoOfPeople());
+            }
+            return new ResponseEntity<>(recipeRepository.save(recipeOpt.get()), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -51,9 +54,9 @@ public class RecipeController {
 
     @DeleteMapping("/recipes/{id}")
     public ResponseEntity<Long> deleteRecipe(@PathVariable("id") Long id){
-        Optional<Recipe> RecipeOpt = recipeRepository.findById(id);
-        if(RecipeOpt.isPresent()){
-            recipeRepository.delete(RecipeOpt.get());
+        Optional<Recipe> recipeOpt = recipeRepository.findById(id);
+        if(recipeOpt.isPresent()){
+            recipeRepository.delete(recipeOpt.get());
             return new ResponseEntity<Long>(id, HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<Long>(id, HttpStatus.NOT_FOUND);

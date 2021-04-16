@@ -12,17 +12,17 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern="dd-MM-yyyy HH:mm")
-    private Date creationDateTime;
+    private Date creationDateTime = new Date();
 
     @Column(name = "cooking_steps")
     private String cookingSteps;
 
     @Column(name = "num_of_people")
-    private long noOfPeople;
+    private Long noOfPeople;
 
     @Column(name = "dish_type")
     private String dishType;
@@ -40,11 +40,11 @@ public class Recipe {
         this.ingredientList = ingredientList;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,11 +64,11 @@ public class Recipe {
         this.cookingSteps = cookingSteps;
     }
 
-    public long getNoOfPeople() {
+    public Long getNoOfPeople() {
         return noOfPeople;
     }
 
-    public void setNoOfPeople(long noOfPeople) {
+    public void setNoOfPeople(Long noOfPeople) {
         this.noOfPeople = noOfPeople;
     }
     
