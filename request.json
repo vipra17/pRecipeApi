@@ -1,0 +1,11 @@
+
+{
+	"dishType": "Vegetarian",
+
+	"cookingSteps": "Cook the basmati rice and seperately cook the kidney beans with herbs and spices",
+
+	"ingredientEntityList": [
+		{"id": 1},
+		{"id": 2}
+	]
+}
