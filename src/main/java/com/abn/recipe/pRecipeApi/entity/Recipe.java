@@ -1,6 +1,7 @@
 package com.abn.recipe.pRecipeApi.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +9,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "recipe")
+@Getter
+@Setter
 public class Recipe {
 
     @Id
@@ -32,51 +35,4 @@ public class Recipe {
 
     public Recipe(){}
 
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
-    }
-
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreationDateTime() {
-        return creationDateTime;
-    }
-
-    public void setCreationDateTime(Date creationDateTime) {
-        this.creationDateTime = creationDateTime;
-    }
-
-    public String getCookingSteps() {
-        return cookingSteps;
-    }
-
-    public void setCookingSteps(String cookingSteps) {
-        this.cookingSteps = cookingSteps;
-    }
-
-    public Long getNoOfPeople() {
-        return noOfPeople;
-    }
-
-    public void setNoOfPeople(Long noOfPeople) {
-        this.noOfPeople = noOfPeople;
-    }
-    
-    public String getDishType() {
-        return dishType;
-    }
-
-    public void setDishType(String dishType) {
-        this.dishType = dishType;
-    }
 }

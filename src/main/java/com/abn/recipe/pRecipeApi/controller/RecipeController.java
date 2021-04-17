@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/recipes")
 public class RecipeController {
 
     @Autowired
     private RecipeRepository recipeRepository;
 
-    @GetMapping("/recipes")
+    @GetMapping()
     public ResponseEntity<List<Recipe>> getAllRecipes(){
         List<Recipe> recipes = (List<Recipe>)recipeRepository.findAll();
         return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
     }
 
-    @PostMapping("/recipes")
+    @PostMapping()
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe){
         Recipe recipeEntity = recipeRepository.save(recipe);
         return new ResponseEntity<Recipe>(recipeEntity, HttpStatus.CREATED);
     }
 
-    @PutMapping("/recipes")
+    @PutMapping()
     public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe){
 
         Optional<Recipe> recipeOpt = recipeRepository.findById(recipe.getId());
@@ -52,7 +52,7 @@ public class RecipeController {
         }
     }
 
-    @DeleteMapping("/recipes/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Long> deleteRecipe(@PathVariable("id") Long id){
         Optional<Recipe> recipeOpt = recipeRepository.findById(id);
         if(recipeOpt.isPresent()){
