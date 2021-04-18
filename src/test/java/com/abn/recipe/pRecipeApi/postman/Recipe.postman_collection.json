@@ -1,0 +1,142 @@
+{
+	"id": "f5025594-55eb-39e0-0eb5-7a998b642f69",
+	"name": "Recipe",
+	"description": "",
+	"order": [
+		"c596c773-43d2-ec3b-d5b4-81f2e98d075e",
+		"b52f5e82-9e24-b6d1-1bbb-eb3f6f89a532",
+		"ad7002e5-7ede-424b-3f5c-dd3fee84e4cd",
+		"faeb723a-c6c3-db4c-fd6a-cb2712542e8c"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1618608334727,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "ad7002e5-7ede-424b-3f5c-dd3fee84e4cd",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8081/v1/recipes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "f5025594-55eb-39e0-0eb5-7a998b642f69",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8081/v1/recipes",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1618608353324,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"dishType\": \"Vegetarian\",\n\t\"cookingSteps\": \"Cook pasta.Add olive oil, pesto and cheese\",\n\t\"noOfPeople\": \"3\",\n\t\"ingredientList\": [\n\t\t{\"id\": \"1\",\"name\":\"Pasta\", \"description\":\"Whole wheat pasta\"},\n\t\t{\"id\": \"2\",\"name\":\"Olive oil\", \"description\":\"Virgin olive oil\"}\n\t]\n}"
+		},
+		{
+			"id": "b52f5e82-9e24-b6d1-1bbb-eb3f6f89a532",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8081/v1/recipes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "f5025594-55eb-39e0-0eb5-7a998b642f69",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8081/v1/recipes",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1618608346910,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"id\": 7,\n       \n        \"noOfPeople\": 9,\n        \n        \"ingredientList\": []\n    }"
+		},
+		{
+			"id": "c596c773-43d2-ec3b-d5b4-81f2e98d075e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8081/v1/recipes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "f5025594-55eb-39e0-0eb5-7a998b642f69",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8081/v1/recipes",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1618608365376,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"dishType\": \"Vegetarian\",\n\t\"cookingSteps\": \"Cook pasta.Add olive oil, pesto and cheese\",\n\t\"noOfPeople\": \"3\",\n\t\"ingredientList\": [\n\t\t{\"id\": \"1\",\"name\":\"Pasta\", \"description\":\"Whole wheat pasta\"},\n\t\t{\"id\": \"2\",\"name\":\"Olive oil\", \"description\":\"Virgin olive oil\"}\n\t]\n}"
+		},
+		{
+			"id": "faeb723a-c6c3-db4c-fd6a-cb2712542e8c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8081/v1/recipes/8",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "f5025594-55eb-39e0-0eb5-7a998b642f69",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8081/v1/recipes/8",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1618608359649,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"dishType\": \"Vegetarian\",\n\t\"cookingSteps\": \"Cook pasta.Add olive oil, pesto and cheese\",\n\t\"noOfPeople\": \"3\",\n\t\"ingredientList\": [\n\t\t{\"id\": \"1\",\"name\":\"Pasta\", \"description\":\"Whole wheat pasta\"},\n\t\t{\"id\": \"2\",\"name\":\"Olive oil\", \"description\":\"Virgin olive oil\"}\n\t]\n}"
+		}
+	]
+}
