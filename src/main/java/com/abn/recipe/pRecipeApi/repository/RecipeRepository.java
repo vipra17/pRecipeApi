@@ -2,10 +2,10 @@ package com.abn.recipe.pRecipeApi.repository;
 
 
 
-import com.abn.recipe.pRecipeApi.entity.Recipe;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.abn.recipe.pRecipeApi.model.Recipe;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RecipeRepository extends PagingAndSortingRepository<Recipe, Long> {
+public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 }
