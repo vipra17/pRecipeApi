@@ -1,4 +1,4 @@
-package com.abn.recipe.pRecipeApi.entity;
+package com.abn.recipe.pRecipeApi.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;

@@ -1,6 +1,7 @@
 package com.abn.recipe.pRecipeApi.controller;
 
-import com.abn.recipe.pRecipeApi.entity.Recipe;
+import com.abn.recipe.pRecipeApi.exception.ResourceNotFoundException;
+import com.abn.recipe.pRecipeApi.model.Recipe;
 import com.abn.recipe.pRecipeApi.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ public class RecipeController {
 
     @Autowired
     private RecipeRepository recipeRepository;
+
 
     @GetMapping()
     public ResponseEntity<List<Recipe>> getAllRecipes(){
@@ -55,10 +57,10 @@ public class RecipeController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Long> deleteRecipe(@PathVariable("id") Long id){
         Optional<Recipe> recipeOpt = recipeRepository.findById(id);
-        if(recipeOpt.isPresent()){
-            recipeRepository.delete(recipeOpt.get());
-            return new ResponseEntity<Long>(id, HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<Long>(id, HttpStatus.NOT_FOUND);
+        recipeOpt.map((recipeEntity) -> {
+            recipeRepository.delete(recipeEntity);
+            return true;
+        }).orElseThrow(() -> new ResourceNotFoundException("No recipe found for recipe Id " + id));
+        return new ResponseEntity<Long>(id, HttpStatus.NO_CONTENT);
     }
 }

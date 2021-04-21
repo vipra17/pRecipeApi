@@ -1,8 +1,7 @@
-package com.abn.recipe.pRecipeApi.entity;
+package com.abn.recipe.pRecipeApi.model;
 
 import lombok.*;
 
-import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
 
 @Entity

@@ -2,7 +2,7 @@ package com.abn.recipe.pRecipeApi.controller;
 
 
 
-import com.abn.recipe.pRecipeApi.entity.Ingredient;
+import com.abn.recipe.pRecipeApi.model.Ingredient;
 import com.abn.recipe.pRecipeApi.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
