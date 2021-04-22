@@ -3,6 +3,7 @@ package com.abn.recipe.pRecipeApi.controller;
 import com.abn.recipe.pRecipeApi.exception.ResourceNotFoundException;
 import com.abn.recipe.pRecipeApi.model.Recipe;
 import com.abn.recipe.pRecipeApi.repository.RecipeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/recipes")
+@Slf4j
 public class RecipeController {
 
     @Autowired
@@ -21,6 +23,7 @@ public class RecipeController {
 
     @GetMapping()
     public ResponseEntity<List<Recipe>> getAllRecipes(){
+        log.debug("In get recipe");
         List<Recipe> recipes = (List<Recipe>)recipeRepository.findAll();
         return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
     }

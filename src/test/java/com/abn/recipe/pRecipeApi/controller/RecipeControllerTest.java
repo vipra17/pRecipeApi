@@ -15,16 +15,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RecipeControllerTest {
 
-    @InjectMocks
-    private RecipeController recipeController;
+
 
     @Mock
     private RecipeRepository recipeRepository;
+    @InjectMocks
+    private RecipeController recipeController;
 
     List<Recipe> recipeList = null;
     Recipe recipe = null;
@@ -53,8 +55,12 @@ public class RecipeControllerTest {
     public void testPutRecipe(){
 
         Recipe recipeEntity = new Recipe();
+        recipeEntity.setId(6L);
         recipeEntity.setNoOfPeople(9L);
-        Mockito.when(recipeRepository.save(recipeEntity));
+        recipeEntity.setIngredientList(Collections.emptyList());
+        Mockito.when(recipeRepository.findById(6L)).thenReturn(java.util.Optional.of(recipeEntity));
+
+        Mockito.when(recipeRepository.save(recipeEntity)).thenReturn(recipeEntity);
 
         ResponseEntity<Recipe> re = recipeController.updateRecipe(recipeEntity);
         Assert.assertEquals(200, re.getStatusCodeValue());
@@ -66,10 +72,10 @@ public class RecipeControllerTest {
 
         Recipe recipeEntity = new Recipe();
         recipeEntity.setDishType("NonVeg");
-
+        Mockito.when(recipeRepository.findById(6L)).thenReturn(java.util.Optional.of(recipeEntity));
         Mockito.doNothing().when(recipeRepository).delete(recipeEntity);
 
-        ResponseEntity<Long> responseEntity = recipeController.deleteRecipe(1L);
+        ResponseEntity<Long> responseEntity = recipeController.deleteRecipe(6L);
 
         Assert.assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
     }

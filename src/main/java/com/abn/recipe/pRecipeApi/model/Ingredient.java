@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "ingredient")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Ingredient {
 
     @Id
@@ -24,8 +25,4 @@ public class Ingredient {
         this.name = name;
         this.description = description;
     }
-    public Ingredient(){
-
-    }
-
 }

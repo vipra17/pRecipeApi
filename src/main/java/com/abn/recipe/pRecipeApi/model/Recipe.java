@@ -11,6 +11,7 @@ import java.util.List;
 @Table(name = "recipe")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Recipe {
 
     @Id
@@ -33,6 +34,5 @@ public class Recipe {
     @ManyToMany
     private List<Ingredient> ingredientList;
 
-    public Recipe(){}
 
 }
