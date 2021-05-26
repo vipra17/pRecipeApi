@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/ingredients")
 public class IngredientController {
 
 
     @Autowired
     private IngredientService ingredientService;
 
-    @GetMapping("/ingredients")
+    @GetMapping()
     public Iterable<Ingredient> getAllIngredients(){
         return ingredientService.getAllIngredients();
     }
