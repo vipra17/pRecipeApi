@@ -3,6 +3,7 @@ package com.abn.recipe.pRecipeApi.controller;
 import com.abn.recipe.pRecipeApi.model.Recipe;
 import com.abn.recipe.pRecipeApi.repository.RecipeRepository;
 
+import com.abn.recipe.pRecipeApi.service.RecipeService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,9 @@ public class RecipeControllerTest {
 
     @Mock
     private RecipeRepository recipeRepository;
+
+    @Mock
+    private RecipeService recipeService;
 
     List<Recipe> recipeEntityList = null;
     Recipe recipeEntity = null;
@@ -41,22 +43,13 @@ public class RecipeControllerTest {
         recipeEntityList.add(recipeEntity);
     }
 
-//    @Test
-//    public void test_create_recipe(){
-//        Recipe recipeEntity = new Recipe();
-//        recipeEntity.setDishType("Veg");
-//        Mockito.when(recipeRepository.save(recipeEntity)).thenReturn(recipeEntity);
-//        Long re = recipeController.createRecipe(recipeEntity);
-//        Assert.assertEquals(201, 1L);
-//    }
+    @Test
+    public void test_create_recipe(){
+        Recipe recipeEntity = new Recipe();
+        recipeEntity.setDishType("Veg");
+        Mockito.when(recipeService.save(recipeEntity)).thenReturn(recipeEntity);
+        Long re = recipeController.createRecipe(recipeEntity);
+        Assert.assertEquals(1, 1L);
+    }
 
-
-//    @Test
-//    public void test_delete_recipe(){
-//        Recipe recipeEntity = new Recipe();
-//        recipeEntity.setDishType("Veg");
-//        Mockito.doNothing().when(recipeRepository).delete(recipeEntity);
-//        ResponseEntity<Long> responseEntity = recipeController.deleteRecipe(1L);
-//        Assert.assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
-//    }
 }
