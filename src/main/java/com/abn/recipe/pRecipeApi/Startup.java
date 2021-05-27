@@ -15,7 +15,7 @@ public class Startup implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Ingredient ingredient = new Ingredient("Pasta", "Whole wheat pasta");
+        Ingredient ingredient = new Ingredient("Burger", "Whole wheat");
         ingredientRepository.save(ingredient);
 
         ingredient = new Ingredient("Olive oil", "Virgin olive oil");
@@ -24,7 +24,7 @@ public class Startup implements CommandLineRunner {
         ingredient = new Ingredient("Cheese", "Grated cheese");
         ingredientRepository.save(ingredient);
 
-        ingredient = new Ingredient("Pesto", "Fresh Basil Pesto");
+        ingredient = new Ingredient("Chicken", "Farm fresh Chicken");
         ingredientRepository.save(ingredient);
 
         ingredient = new Ingredient("Onions", "Red onions diced");
