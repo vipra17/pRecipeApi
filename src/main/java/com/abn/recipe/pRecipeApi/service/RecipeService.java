@@ -12,26 +12,22 @@ public class RecipeService
     @Autowired
     RecipeRepository recipeRepository;
 
-    public List<Recipe> getAllRecipes()
-    {
+    public List<Recipe> getAllRecipes() {
         List<Recipe> recipes = new ArrayList<Recipe>();
         recipeRepository.findAll().forEach(recipe1 -> recipes.add(recipe1));
         return recipes;
     }
 
-    public Recipe getRecipesById(Long id)
-    {
-    return recipeRepository.findById(id).get();
+    public Recipe getRecipesById(Long id) {
+        return recipeRepository.findById(id).get();
     }
 
-    public Recipe save(Recipe recipe)
-    {
+    public Recipe save(Recipe recipe) {
         recipeRepository.save(recipe);
         return recipe;
     }
 
-    public void delete(Long id)
-    {
-    recipeRepository.deleteById(id);
+    public void delete(Long id) {
+        recipeRepository.deleteById(id);
     }
 }
